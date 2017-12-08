@@ -150,11 +150,19 @@ iframe.video {
     margin: 3em 0 !important;
 }
 
-@media (min-width: 550px) {
+@media (max-width: 640px) {
     /* Small windows */
-}
-@media (min-width: 1000px) {
-    /* Large windows */
+    main {
+        padding: 2em 1em;
+    }
+    header {
+        position: relative;
+        top: initial;
+        right: initial;
+        bottom: initial;
+        left: initial;
+        width: 100%;
+    }
 }
 @media (min-width: 1400px) {
     /* Larger windows */
