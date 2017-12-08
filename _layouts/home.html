@@ -22,13 +22,10 @@
         let element_bottom = element_top + this.height();
         let window_top = $(window).scrollTop();
         let window_bottom = $(window).scrollTop() + $(window).height();
-
-
         let visible_height = Math.min(element_bottom, window_bottom) - Math.max(element_top, window_top);
         visible_height = Math.max(0, visible_height);
         return Math.max(visible_height / this.height(), visible_height / $(window).height());
       }
-
       $('a[href^="#"]').click(function(event) {
         event.preventDefault();
         $('body, html').animate({
@@ -43,6 +40,7 @@
           $('a[href="#' + id + '"]').parent().css("color", color);
         });
       });
+      $(window).scroll();
     });
   </script>
   <body>
@@ -72,15 +70,15 @@
 
     <!-- Piwik -->
     <script type="text/javascript">
-      var _paq = _paq || [];
+      let _paq = _paq || [];
       // tracker methods like "setCustomDimension" should be called before "trackPageView"
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       (function() {
-        var u="//brentyi.com/piwik/";
+        let u="//brentyi.com/piwik/";
         _paq.push(['setTrackerUrl', u+'piwik.php']);
         _paq.push(['setSiteId', '1']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        let d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
