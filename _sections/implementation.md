@@ -6,32 +6,39 @@ latex: yes
 
 # Implementation
 
-## Describe any hardware you used or built. Illustrate with pictures and diagrams.
-## What parts did you use to build your solution?
-## Describe any software you wrote in detail. Illustrate with diagrams, flow charts, and/or other
+<!--
+Describe any hardware you used or built. Illustrate with pictures and diagrams.
+What parts did you use to build your solution?
+Describe any software you wrote in detail. Illustrate with diagrams, flow charts, and/or other
 appropriate visuals. This includes launch files, URDFs, etc.
-## How does your complete system work? Describe each step.
+How does your complete system work? Describe each step.
+-->
 
-Lorem markdownum atria iubentque mille venientesque mihi quo; Pallada Amphissos
-radiantis moratum et veniet traditque hasta. Despexitque ignara simul dari
-ardetque marmora bracchia manet tepidique frequens pararet conclamat vidit
-coeptas.
+## Kinect Extrinsic Calibration
+
+Using a [tweaked version of the ar_track_alvar](https://github.com/brentyi/ar_track_alvar) ROS package, we set up both our Sawyer's gripper camera and our Kinect's depth camera to track a shared set of randomly placed AR tags.
+
+![calibration photo](https://i.imgur.com/8h9M3ah.jpg)
+
+Then, we try to find the optimal **world => Kinect** transformation, which minimizes the squared positional error between the two broadcasted tfs associated with each tag. If we define a matrix X whose rows are the positions of the tags in the Kinect frame and a matrix Y whose rows are the positions of these tags in the world frame, we can solve for the position and orientation of the Kinect as follows:
 
 $$
 \begin{align*}
-    \frac{dx}{dt} &= \frac{dr}{dt} \cos \theta - r\frac{d\theta}{dt}sin \theta\\
-    \frac{dy}{dt} &= \frac{dr}{dt} \sin \theta + r\frac{d\theta}{dt}cos \theta\\\\
-    \begin{bmatrix}\frac{dx}{dt} \\ \frac{dy}{dt}\end{bmatrix} &= \begin{bmatrix}\cos \theta & -r \sin \theta \\ \sin \theta & r \cos \theta\end{bmatrix}\begin{bmatrix}\frac{dr}{dt} \\ \frac{d\theta}{dt}\end{bmatrix} \\\\
-    \begin{bmatrix}\frac{dr}{dt} \\ \frac{dy}{dt}\end{bmatrix} &= \begin{bmatrix}\cos \theta & -r \sin \theta \\ \sin \theta & r \cos \theta\end{bmatrix}^{-1}\begin{bmatrix}\frac{dx}{dt} \\ \frac{dy}{dt}\end{bmatrix} \\
-                                                               &= \begin{bmatrix}\cos \theta & \sin \theta \\ -\frac{1}{r} \sin \theta & \frac{1}{r} \cos \theta\end{bmatrix}\begin{bmatrix}\frac{dx}{dt} \\ \frac{dy}{dt}\end{bmatrix} \\\\
-    \frac{dr}{dt} &= \frac{dx}{dt} * \cos \theta + \frac{dy}{dt} * \sin \theta \\
-    \frac{d\theta}{dt} &= -\frac{dx}{dt} * \frac{1}{r} \sin \theta + \frac{dy}{dt} * \frac{1}{r} \cos \theta \\
+    X &= \begin{bmatrix}\vec{x}_1 & \vec{x}_2 & \dots & \vec{x}_n\end{bmatrix}^T\\
+    Y &= \begin{bmatrix}\vec{y}_1 & \vec{y}_2 & \dots & \vec{y}_n\end{bmatrix}^T\\
+    R, t &= \text{argmin}_{R\in\textit{SO}(3), t\in\mathbb{R}^3}\sum||(Rx_i + t) - y_i||^2
 \end{align*}
 $$
 
-## Differt illis quod
+Solving this optimization by setting its derivative to 0 eventually gives us the solution:
 
-Primis fugam, de Troica latumque utrique: ut luridus coniuge credulitate putat
-tamen Baccho. Miseranda corporis. Eadem talis; patula [et
-cum](http://www.quod.org/viscera.html) inquit negant.
+$$
+\begin{align*}
+    U, \Sigma, V &= \text{SVD}((X - \mu_x)^T(Y - \mu_y))\\
+    R &= VU^T\\
+    t &= \mu_y - R\mu_x
+\end{align*}
+$$
+
+$$VU^T$$ gives us the ideal orthonormal transformation matrix with a magnitude 1 determinant, but if our input data is extraordinarily bad this can theoretically also be a reflection and not a pure rotation. This can be rectified by checking the sign of the determinant -- see [code](https://github.com/brentyi/marshmellow_localization/blob/master/scripts/helpers.py) for the full implementation details.
 
