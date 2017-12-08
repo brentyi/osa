@@ -5,7 +5,8 @@ order: 4
 
 # Results
 
-## Montes audentem ille genitor visus pater
+## How well did your project work? What tasks did it perform?
+## Illustrate with pictures and at least one video.
 
 Lorem markdownum atria iubentque mille venientesque mihi quo; Pallada Amphissos
 radiantis moratum et veniet traditque hasta. Despexitque ignara simul dari

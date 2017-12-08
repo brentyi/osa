@@ -5,7 +5,8 @@ order: 6
 
 # Team
 
-## Montes audentem ille genitor visus pater
+## Include names and short bios of each member of your project group.
+## Describe the major contributions of each team member
 
 Lorem markdownum atria iubentque mille venientesque mihi quo; Pallada Amphissos
 radiantis moratum et veniet traditque hasta. Despexitque ignara simul dari

@@ -7,7 +7,11 @@ order: 7
 
 test
 ## Montes audentem ille genitor visus pater
-
+## code, URDFs, and launch files you wrote
+## CAD models for any hardware you designed
+## data sheets for components used in your system
+## any additional videos, images, or data from your finished solution
+## links to other public sites (e.g., GitHub), if that is where your files are stored
 Lorem markdownum atria iubentque mille venientesque mihi quo; Pallada Amphissos
 radiantis moratum et veniet traditque hasta. Despexitque ignara simul dari
 ardetque marmora bracchia manet tepidique frequens pararet conclamat vidit

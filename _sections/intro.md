@@ -7,7 +7,7 @@ order: 1
 
 # Introduction
 
-## Montes audentem ille genitor visus pater
+## Describe the end goal of your project.
 
 Lorem markdownum atria iubentque mille venientesque mihi quo; Pallada Amphissos
 radiantis moratum et veniet traditque hasta. Despexitque ignara simul dari
@@ -24,9 +24,14 @@ coeptas.
             balance_system), 1);
     sync += 28;
 
-## Differt illis quod
+## Why is this an interesting project? What interesting problems do you need to solve to make your solution work?
 
 Primis fugam, de Troica latumque utrique: ut luridus coniuge credulitate putat
 tamen Baccho. Miseranda corporis. Eadem talis; patula [et
 cum](http://www.quod.org/viscera.html) inquit negant.
+
+## In what real-world robotics applications could the work from your project be useful?
+
+Etiam egestas tellus neque, eget rutrum nunc commodo a. Ut pellentesque eu orci vel interdum. Sed posuere tristique elit, sed gravida nisi tempor ut. Morbi sit amet massa mollis, dignissim nisi eu, auctor nulla. Proin bibendum imperdiet sem quis porta. Nunc sollicitudin elit ac velit placerat tincidunt. In hac habitasse platea dictumst. Sed ac luctus eros, id aliquet risus.
+
 
