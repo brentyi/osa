@@ -1,0 +1,159 @@
+---
+layout: null
+---
+
+{% include_relative skeleton/css/normalize.css %}
+{% include_relative skeleton/css/skeleton.css %}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #333;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: #09c;
+}
+/*p a:hover, h1 a:hover {
+    opacity: 0.7;
+}*/
+
+p {
+    margin-bottom: 2rem;
+}
+
+a {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+}
+a::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 0%;
+    bottom: 0%;
+    right: -50%;
+    left: 0%;
+    border-top: 2em solid rgba(0, 0, 0, 0.05);
+    border-right: 1.5em solid rgba(255, 255, 255, 0);
+    transform: translateX(-100%);
+    opacity: 0.5;
+    transition: transform 0.3s, opacity 0.5s;
+}
+a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+    color: #777;
+}
+
+ul, ol {
+    list-style-position: outside;
+    padding-left: 1.5em;
+}
+
+li {
+    margin: 0;
+}
+
+header {
+    background-color: #f2f2f2;
+    z-index: 999;
+    padding: 2.5em 2em;
+    /* border-bottom: 1px solid #ccc; */
+    /* border-right: 1px solid #ccc; */
+    width: 19em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+header ol li {
+    color: #aaa;
+}
+header a:link, header a:visited {
+    padding: 0 0.3em;
+}
+header h1 {
+    margin-bottom: 0.2em;
+}
+header p {
+    color: #999;
+}
+
+main {
+    padding: 3em 2em 3em 22em;
+    max-width: 100%;
+    width: 65em;
+}
+main::before {
+    height: 3em;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    content: '';
+    z-index: 1;
+    background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+}
+main::after {
+    height: 3em;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    content: '';
+    z-index: 1;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75));
+}
+section {
+    border-top: 1px solid #ddd;
+    padding: 2.4em 0.2em 1.4em 0.2em;
+}
+section:first-of-type {
+    border: 0;
+}
+
+iframe.video {
+    z-index: 2;
+    position: relative;
+    width: 50em;
+    max-width: 100%;
+    height: 30em;
+}
+
+.MathJax_Display {
+    margin: 3em 0 !important;
+}
+
+@media (min-width: 550px) {
+    /* Small windows */
+}
+@media (min-width: 1000px) {
+    /* Large windows */
+}
+@media (min-width: 1400px) {
+    /* Larger windows */
+    html {
+        font-size: 75%;
+    }
+}

@@ -1,0 +1,30 @@
+title: Mr. Marshmello
+email: brentyi@berkeley.edu
+description: > # this means to ignore newlines until "baseurl:"
+  A robot for assisted eating
+baseurl: "/ee106a" # the subpath of your site, e.g. /blog
+url: https://brentyi.com # the base hostname & protocol for your site, e.g. http://example.com
+
+collections:
+  sections:
+    output: false
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      latex: no
+
+host: brentyi.com
+
+# Build settings
+markdown: kramdown
+# theme: minima
+gems:
+  - jekyll-feed
+  - octopress-autoprefixer
+  # - jekyll-redirect-from
+exclude:
+  - Gemfile
+  - Gemfile.lock
