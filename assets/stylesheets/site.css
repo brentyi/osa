@@ -54,7 +54,11 @@ a:hover::before {
 }
 
 h1 {
+    padding-top: 1em;
     font-size: 2em;
+}
+h1:first-child {
+    padding: 0;
 }
 
 h2 {
