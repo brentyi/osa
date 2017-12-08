@@ -131,6 +131,7 @@ section {
 }
 section:first-of-type {
     border: 0;
+    padding-top: 0;
 }
 
 iframe.video {
