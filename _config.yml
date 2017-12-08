@@ -1,7 +1,7 @@
 title: Mr. Marshmello
 email: brentyi@berkeley.edu
 description: > # this means to ignore newlines until "baseurl:"
-  An assisted eating robot
+  An assistive eating robot
 baseurl: "/ee106a" # the subpath of your site, e.g. /blog
 url: https://brentyi.com # the base hostname & protocol for your site, e.g. http://example.com
 
