@@ -40,13 +40,25 @@ $$
 \end{align*}
 $$
 
-$$VU^T$$ gives us the ideal orthonormal transformation matrix with a magnitude 1 determinant, but if our input data is extraordinarily bad this can theoretically also be a reflection and not a pure rotation. This can be rectified by checking the sign of the determinant -- see [code](https://github.com/brentyi/marshmellow_localization/blob/master/scripts/helpers.py) for the full implementation details.
+$$VU^T$$ gives us the ideal orthonormal transformation matrix with a magnitude 1 determinant, but if our input data is extraordinarily bad this can theoretically also be a reflection and not a pure rotation. This can be rectified by checking the sign of the determinant -- see [helpers.py](https://github.com/brentyi/marshmellow_localization/blob/master/scripts/helpers.py) for full implementation details.
+
+## Marshmallow Pose Estimation
+
+Once we have our depth camera calibrated, we can use it to search our robot's environment for marshmallows. For our project, we assume that these marshmallows are spread out on a table in front of it.
+
+![marshmallow tfs](https://i.imgur.com/oOOaKOh.png?1)
+
+Our marshmallow localization node parses the point cloud outputted by the Kinect, and applies a naive search algorithm to estimate the poses of marshmallows on it:
+
+![marshmallow flow chart](https://i.imgur.com/iaKP4Jt.png)
+
+<!-- ## Web Interface -->
 
 ## Running our project
 
 At the start of our project, we discussed a lot about making a single launch file that the entire Mr. Marshmello stack -- hardware drivers, MoveIt, calibration code, face tracking, etc. However, we soon realized that this would make development and debugging significantly more difficult. We wouldn't be able to, for example, kill and restart just a single one of our nodes without restarting the entire stack.
 
-Instead, we split our project up into several different logically grouped launch files. A [shell script](https://github.com/brentyi/marshmello_bringup/blob/master/run.sh) was then written to automatically launch each of them in named tmux panes. This was easy to run, yet also easy to debug:
+Instead, we split our project up into several different logically grouped launch files. A [shell script](https://github.com/brentyi/marshmello_bringup/blob/master/run.sh) was then written to automatically launch each of them in named [tmux](https://github.com/tmux/tmux/wiki) panes. This was easy to run, yet also easy to debug:
 
 ```
 tmux new-session -d -s marshmello
