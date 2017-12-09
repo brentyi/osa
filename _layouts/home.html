@@ -46,8 +46,7 @@
   <body>
     {% assign sorted_sections = (site.sections | sort:"order" | sort:"parent") %}
     <header>
-      <h1>{{ site.title }}</h1>
-      <p>{{ site.description }}</p>
+      {{content}}
       <ol>
         {% for section in sorted_sections %}
         <li><a href="#{{ section.title | slugify }}">{{ section.title }}</a></li>
@@ -55,7 +54,6 @@
       </ol>
     </header>
     <main>
-      {{ content }}
       {% for section in sorted_sections %}
       <section id="{{ section.title | slugify}}">
         <!-- <h2>{{ section.title }}</h2> -->
