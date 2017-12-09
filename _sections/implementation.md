@@ -30,17 +30,22 @@ $$
 \end{align*}
 $$
 
-Solving this optimization by setting its derivative to 0 eventually gives us the solution:
+Solving this optimization by setting its derivative to 0 gives us a solution built off the singular vectors of the de-meaned position covariance:
 
 $$
 \begin{align*}
-    U, \Sigma, V &= \text{SVD}((X - \mu_x)^T(Y - \mu_y))\\
+    \vec{\mu}_x &= \frac{1}{n}\sum \vec{x}_i\\
+    \vec{\mu}_y &= \frac{1}{n}\sum \vec{y}_i\\
+    \tilde{X} &= X - \begin{bmatrix}\vec{\mu}_x & \vec{\mu}_x & \dots & \vec{\mu}_x\end{bmatrix}^T\\
+    \tilde{Y} &= Y - \begin{bmatrix}\vec{\mu}_y & \vec{\mu}_y & \dots & \vec{\mu}_y\end{bmatrix}^T\\
+    \\
+    U\Sigma V^T &= \tilde{X}^T\tilde{Y}\\
     R &= VU^T\\
     t &= \mu_y - R\mu_x
 \end{align*}
 $$
 
-$$VU^T$$ gives us the ideal orthonormal transformation matrix with a magnitude 1 determinant, but if our input data is extraordinarily bad this can theoretically also be a reflection and not a pure rotation. This can be rectified by checking the sign of the determinant -- see [helpers.py](https://github.com/brentyi/marshmellow_localization/blob/master/scripts/helpers.py) for full implementation details.
+$$VU^T$$ is the ideal orthonormal transformation matrix with a magnitude 1 determinant, but if our input data is extraordinarily bad this can theoretically also be a reflection and not a pure rotation. This can be rectified by checking the sign of the determinant -- see [helpers.py](https://github.com/brentyi/marshmellow_localization/blob/master/scripts/helpers.py) for full implementation details.
 
 ## Marshmallow Pose Estimation
 
