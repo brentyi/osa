@@ -52,11 +52,19 @@ Our marshmallow localization node parses the point cloud outputted by the Kinect
 
 ![marshmallow flow chart](https://i.imgur.com/iaKP4Jt.png)
 
-<!-- ## Web Interface -->
+## Control Interface
+
+![web ui](https://i.imgur.com/3l6DA2x.png)
+
+To send commands to our robot, we connected it to a web service in the cloud.
+
+A ROS node communicates with the server, and makes a corresponding ROS service call each time a button on our web interface is pressed.
+
+In the future, we could use this connection to the cloud to allow the robot to be commanded through a voice assistant, such as Amazon Alexa.
 
 ## Running our project
 
-At the start of our project, we discussed a lot about making a single launch file that the entire Mr. Marshmello stack -- hardware drivers, MoveIt, calibration code, face tracking, etc. However, we soon realized that this would make development and debugging significantly more difficult. We wouldn't be able to, for example, kill and restart just a single one of our nodes without restarting the entire stack.
+At the start of our project, we discussed a lot about making a single launch file for the entire Mr. Marshmello stack: hardware drivers, MoveIt, calibration code, face tracking, etc. However, we soon realized that this would make development and debugging significantly more difficult. We wouldn't be able to, for example, kill and restart just a single one of our nodes without restarting the entire stack.
 
 Instead, we split our project up into several different logically grouped launch files. A [shell script](https://github.com/brentyi/marshmello_bringup/blob/master/run.sh) was then written to automatically launch each of them in named [tmux](https://github.com/tmux/tmux/wiki) panes. This was easy to run, yet also easy to debug:
 
