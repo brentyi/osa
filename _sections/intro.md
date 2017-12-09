@@ -3,10 +3,7 @@ title: Introduction
 order: 1
 ---
 
-<!-- <iframe class="video" src="https://www.youtube.com/embed/7qmvjB_mxrE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-*This video should be moved down, and we should just put a photo here. Maybe one of the ones Brent drew*-->
 
-![josh eating](https://i.imgur.com/g5M2goS.jpg?1)
 
 # Introduction
 

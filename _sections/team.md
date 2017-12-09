@@ -47,7 +47,7 @@ order: 6
 ### Major contributions:
 - Sensor calibration
 - Marshmallow pose estimation
-- Web interface (server side)
+- Web interface (UI, server side)
 </div>
 
 <div class="person" markdown="1">

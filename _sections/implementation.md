@@ -70,6 +70,7 @@ The previous face pattern is remembered, so that when we enter template matching
 With the combination of these two algorithms, we’re able to track the subject’s face with much more precision and consistency. Once we know the 2D coordinates of the mouth in the RGB camera’s face, we can find the corresponding 3D coordinate in the Kinect point cloud, which is then broadcasted as a transform to the planning node!
 
 This image shows Rviz on the left, where you can see the “face” transform indicating the 3D position of the mouth, and the face detected from the Kinect’s rgb camera drawing a box and circle around the user's face and mouth:
+
 ![mouth tracking](https://i.imgur.com/EnqBAi0.jpg)
 
 ## Path Planning

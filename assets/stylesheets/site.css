@@ -114,7 +114,7 @@ main {
     max-width: 100%;
     width: 65em;
 }
-main::before {
+/*main::before {
     height: 3em;
     position: fixed;
     top: 0;
@@ -133,7 +133,7 @@ main::after {
     content: '';
     z-index: 1;
     background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
-}
+}*/
 section {
     border-top: 1px solid #ddd;
     padding: 2.4em 0.2em 1.4em 0.2em;
