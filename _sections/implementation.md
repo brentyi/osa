@@ -59,12 +59,14 @@ Our marshmallow localization node parses the point cloud outputted by the Kinect
 
 ## Face Tracking
 
-![mouth tracking](https://i.imgur.com/XH0RJVY.png)
-
 We simplify mouth detection to just face detection with the position of the mouth estimated to be towards the bottom center of the face’s bounding rectangle. OpenCV provides a simple frontal face detection algorithm which uses Haar feature-based cascade classifiers to recognize potential faces in an image. The issue with just this is that the user’s face must be very “face-like,” looking straight ahead at the camera, and not tilted in any direction. This is unideal, so we add in another algorithm called template matching in order to track the face even when it’s not oriented properly. The way this works is that when OpenCV’s haar cascade algorithm is no longer able to detect a face, we switch to the template matching phase.
 
 The previous face pattern is remembered, so that when we enter template matching, we search the video frame for that pattern, and the closest match is assumed the face. We return this result as the face. 
-With the combination of these two algorithms, we’re able to track the subject’s face with much more precision and consistency. Once we know the 2D coordinates of the mouth in the RGB camera’s face, we can find the corresponding 3D coordinate in the Kinect point cloud, which is broadcasted as a transform to the planning node!
+
+With the combination of these two algorithms, we’re able to track the subject’s face with much more precision and consistency. Once we know the 2D coordinates of the mouth in the RGB camera’s face, we can find the corresponding 3D coordinate in the Kinect point cloud, which is then broadcasted as a transform to the planning node!
+
+This image shows Rviz on the left, where you can see the “face” transform indicating the 3D position of the mouth, and the face detected from the Kinect’s rgb camera drawing a box and circle around the user's face and mouth:
+![mouth tracking](https://i.imgur.com/EnqBAi0.jpg)
 
 ## Control Interface
 
