@@ -3,31 +3,28 @@ title: Introduction
 order: 1
 ---
 
-<iframe class="video" src="https://www.youtube.com/embed/7qmvjB_mxrE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-*This video should be moved down, and we should just put a photo here. Maybe one of the ones Brent drew*
+<!-- <iframe class="video" src="https://www.youtube.com/embed/7qmvjB_mxrE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+*This video should be moved down, and we should just put a photo here. Maybe one of the ones Brent drew*-->
+
+![josh eating](https://i.imgur.com/g5M2goS.jpg?1)
 
 # Introduction
 
-## Describe the end goal of your project.
-## Why is this an interesting project? What interesting problems do you need to solve to make your solution work?
-## In what real-world robotics applications could the work from your project be useful?
+<!--
+Describe the end goal of your project.
+Why is this an interesting project? What interesting problems do you need to solve to make your solution work?
+In what real-world robotics applications could the work from your project be useful?
+-->
 
-Our goal for this project was to autonomously feed a human a marshmallow. 
+Our goal for this project was to use the Sawyer collaborative robot to assist a human with eating.
 
-There would be a few phases in order to accomplish this:
-1. Detect a single marshmallow from a group of marshmallows
-2. Detect and find the position of the human's mouth
-3. Move the end effector to the position of the chosen marshmallow
-4. Grip the marshmallow
-5. Move the end effector with the gripped marshmallow to the user's mouth
-6. Repeat as needed
+This is exciting to us not only because of our interest in the involved technical challenges, but also because these challenges are directly applicable to real world problems. In the assistive technologies space, we believe that robots have a lot of potential in giving individuals such as quadriplegics the autonomy to perform everyday activities such as eating on their own. In the future, we hope robotic systems that can grasp and manipulate items like food will play a large part in allowing everybody -- regardless of disability, background, or socioeconomic status -- to live independent and meaningful lives.
 
-This task is interesting both because it is directly applicable to many real world scenarios and because there are a few challenging problems to solve here as well.
-This concept is aligned in the assistive technologies space, dealing with helping people who have trouble reaching out and feeding themselves, such as those with under developed motor skills or paraplegics for example.
-In the future, fully automated systems which can detect items to grasp, and bring them to ideal destinations will revolutionize the standards of living for all types of people.
-
-For this specific project, there were a few challenging problems we had to deal with.
-First off, the method to calibrate the Kinect is actually a much more complicated mathematical problem than we expected.
-Then, identifying marshmallows itself is not a very straight forward task, especially because we aimed to be able to do so without AR tags or pre-defined placements.
-From there, the subtleties of face detection and gripping of a soft deformable material bring up their own series of challenges as well.
-All these points are elaborated in the following detailed sections.
+As a proof-of-concept, we simplified this challenge into the task of feeding somebody a marshmallow.
+Several questions needed to be answered to make this happen:
+- What sensors should we use to make the robot aware of its surroundings?
+- How are these sensors mounted, positioned, and calibrated?
+- How do we track the user’s mouth in 3D space?
+- How do we detect and localize a marshmallow, again in 3D space?
+- How do we reliably and repeatedly grip the marshmallow?
+- How do we move the arm safely around the human?

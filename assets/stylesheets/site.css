@@ -19,16 +19,6 @@ body {
 a:link, a:visited {
     text-decoration: none;
     color: #09c;
-}
-/*p a:hover, h1 a:hover {
-    opacity: 0.7;
-}*/
-
-p {
-    margin-bottom: 2rem;
-}
-
-a {
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -52,6 +42,16 @@ a:hover::before {
     opacity: 1;
     transform: translateX(0);
 }
+
+p {
+    margin-bottom: 2rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 
 h1 {
     padding-top: 1em;
