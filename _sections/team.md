@@ -3,11 +3,6 @@ title: Team
 order: 6
 ---
 
-# Team
-
-<!-- ## Include names and short bios of each member of your project group. -->
-<!-- ## Describe the major contributions of each team member -->
-
 <style scoped>
 .person {
     float: left;

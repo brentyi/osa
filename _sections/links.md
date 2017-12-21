@@ -3,8 +3,6 @@ title: Links
 order: 7
 ---
 
-# Links
-
 ## Source Code
 - [Launch files and bringup scripts](https://github.com/brentyi/marshmello_bringup)
 - [Marshmallow Localization and Kinect calibration](https://github.com/brentyi/marshmellow_localization)

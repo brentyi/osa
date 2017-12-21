@@ -3,8 +3,6 @@ title: Conclusion
 order: 5
 ---
 
-# Conclusion
-
 ![josh eating](https://i.imgur.com/g5M2goS.jpg?1)
 
 <!-- ## Discuss your results. How well did your finished solution meet your design criteria? -->
