@@ -105,7 +105,7 @@ At the start of our project, we discussed a lot about making a single launch fil
 
 Instead, we split our project up into several different logically grouped launch files. A [shell script](https://github.com/brentyi/marshmello_bringup/blob/master/run.sh) was then written to automatically launch each of them in named [tmux](https://github.com/tmux/tmux/wiki) panes. This was easy to run, yet also easy to debug:
 
-```
+```shell
 tmux new-session -d -s marshmello
 
 tmux rename-window 'sawyer'

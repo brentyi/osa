@@ -4,6 +4,7 @@ layout: null
 
 {% include_relative skeleton/css/normalize.css %}
 {% include_relative skeleton/css/skeleton.css %}
+{% include_relative syntax/friendly.css %}
 
 html {
     font-size: 75%;
@@ -125,6 +126,10 @@ iframe.video {
 
 table {
     margin: 0 auto;
+}
+
+figure {
+    margin: 0;
 }
 
 .MathJax_Display {
