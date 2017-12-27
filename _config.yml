@@ -22,7 +22,7 @@ host: brentyi.com
 # Build settings
 markdown: kramdown
 # theme: minima
-gems:
+plugins:
   - jekyll-feed
   - octopress-autoprefixer
   # - jekyll-redirect-from

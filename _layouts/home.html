@@ -70,7 +70,7 @@
     });
   </script>
   <body>
-    {% assign sorted_sections = (site.sections | sort:"order" | sort:"parent") %}
+    {% assign sorted_sections = site.sections | sort:"order" | sort:"parent" %}
     <header id="nav">
       {{content}}
       <ol>
