@@ -21,11 +21,13 @@ host: brentyi.com
 
 # Build settings
 markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: compressed
+
 # theme: minima
 plugins:
-  - jekyll-feed
   - octopress-autoprefixer
-  # - jekyll-redirect-from
 exclude:
   - Gemfile
   - Gemfile.lock

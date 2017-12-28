@@ -1,10 +1,8 @@
----
-layout: null
----
+$palette-bg-light: #ffffff;
+$palette-bg-dark: #f2f2f2;
 
-{% include_relative skeleton/css/normalize.css %}
-{% include_relative skeleton/css/skeleton.css %}
-{% include_relative syntax/friendly.css %}
+$palette-fg-light: #8d8d8d;
+$palette-fg-dark: #000;
 
 html {
     font-size: 75%;
@@ -13,8 +11,8 @@ html {
 body {
     font-family: 'Source Sans Pro', sans-serif;
     box-sizing: border-box;
-    background-color: #fff;
-    color: #333;
+    background-color: $palette-bg-light;
+    color: $palette-fg-dark;
     line-height: 1.5em;
 }
 
@@ -40,16 +38,12 @@ img {
 
 
 h1 {
-    padding-top: 1em;
     font-size: 2em;
-}
-h1:first-child {
-    padding: 0;
 }
 
 h2 {
     font-size: 1.5em;
-    color: #777;
+    color: $palette-fg-light;
     margin-top: 3rem;
     margin-bottom: 1rem;
 }
@@ -59,25 +53,22 @@ h2:first-of-type {
 
 h3 {
     font-size: 1.2em;
-    color: #777;
+    color: $palette-fg-light;
     margin-bottom: 0;
 }
+
 
 ul, ol {
     list-style-position: outside;
     padding-left: 1.5em;
 }
 
-li ul, li ol {
-    margin: 0;
-}
-
 li {
-    margin: 0;
+    padding: 0 0 0 0.25em;
 }
 
-header {
-    background-color: #f2f2f2;
+header#site-header {
+    background-color: $palette-bg-dark;
     z-index: 999;
     padding: 2.5em 2em;
     width: 19em;
@@ -86,23 +77,25 @@ header {
     left: 0;
     bottom: 0;
     overflow-y: scroll;
-}
-header ol li {
-    color: #aaa;
-    padding-left: 0.3em;
-}
-header ol ul li {
-    padding-left: 0.1em;
-    opacity: 0.7;
-    line-height: 1.2em;
-}
-header h1 {
-    margin-bottom: 0.1em;
-}
-header p {
-    color: #999;
-    padding-left: 0.2em;
-    margin-bottom: 1.2em;
+
+    h1 {
+        margin-bottom: 0.1em;
+    }
+
+    p {
+        color: $palette-fg-light;
+        padding-left: 0.2em;
+        margin-bottom: 1.2em;
+    }
+
+    ol {
+        color: $palette-fg-light;
+        padding-left: 0;
+    }
+
+    li {
+        margin: 0 0 0 1.2em;
+    }
 }
 
 main {
@@ -112,12 +105,7 @@ main {
 }
 
 section {
-    border-top: 1px solid #ddd;
-    padding: 2.4em 0 1.4em 0;
-}
-section:first-of-type {
-    border: 0;
-    padding-top: 0;
+    padding: 0 0 3.4em 0;
 }
 
 iframe.video {
@@ -150,8 +138,7 @@ figure {
     line-height: 2em;
     font-size: 1.5em;
     text-align: center;
-    color: #000;
-    background-color: #f2f2f2;
+    background-color: $palette-bg-dark;
 
     transform: translateY(100%); /* to be shown in javascript */
 }
@@ -164,7 +151,7 @@ figure {
     main {
         padding: 2em 2em;
     }
-    header {
+    header#site-header {
         position: relative;
         top: initial;
         right: initial;
@@ -176,6 +163,7 @@ figure {
         font-size: 75%;
     }
 }
+
 @media (min-width: 1400px) {
     /* Larger windows */
     html {

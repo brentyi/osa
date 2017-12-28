@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-visible/1.2.0/jquery.visible.min.js"></script>
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/stylesheets/site.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/oosa.css" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
   </head>
   <script>
@@ -27,18 +27,6 @@
         visible_height = Math.max(0, visible_height);
         return Math.max(visible_height / this.height(), visible_height / $(window).height());
       }
-
-      /*
-      // Automatically parse and link <h2>'s
-      $('section').each(function() {
-        let id = $(this).attr('id');
-        let $sublist = $("ul#sublist-" + id);
-        $(this).children('h2').each(function() {
-          let id = $(this).attr('id');
-          $sublist.append('<li><a href="#' + id + '">' + $(this).text() + '</a></li>');
-        });
-      });
-      */
 
       // Smooth scroll
       $('a[href^="#"]').click(function(event) {
@@ -59,7 +47,7 @@
         });
 
         // Show "scroll to top" button when nav is invisible
-        let nav_vis = $('#nav').visibility_heuristic() * 100;
+        let nav_vis = $('#site-header').visibility_heuristic() * 100;
         $('#scroll-up').css('transform', 'translateY(' + nav_vis + '%)');
       });
 
@@ -71,14 +59,11 @@
   </script>
   <body>
     {% assign sorted_sections = site.sections | sort:"order" | sort:"parent" %}
-    <header id="nav">
+    <header id="site-header">
       {{content}}
       <ol>
         {% for section in sorted_sections %}
-        <li>
-          <a href="#{{ section.title | slugify }}">{{ section.title }}</a>
-          <ul id="sublist-{{ section.title | slugify }}"></ul>
-        </li>
+        <li><a href="#{{ section.title | slugify }}">{{ section.title }}</a></li>
         {% endfor %}
       </ol>
     </header>
@@ -90,7 +75,7 @@
       </section>
       {% endfor %}
     </main>
-    <a id="scroll-up" href="#nav">&uarr;</a>
+    <a id="scroll-up" href="#site-header">&uarr;</a>
 
     <!-- MathJax -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
