@@ -1,3 +1,7 @@
+---
+layout: compress
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -64,18 +68,20 @@
       <h1>{{ site.title }}</h1>
       <p>{{ site.description }}</p>
       <ol>
-        {% for section in sorted_sections %}
-        <li><a href="#{{ section.title | slugify }}">{{ section.title }}</a></li>
-        {% endfor %}
+        {%- for section in sorted_sections %}
+          <li><a href="#{{ section.title | slugify }}">{{ section.title }}</a></li>
+        {%- endfor %}
       </ol>
     </header>
     <main>
-      {% for section in sorted_sections %}
-      <section id="{{ section.title | slugify}}">
-        <h1>{{ section.title }}</h1>
-        {{ section.content }}
-      </section>
-      {% endfor %}
+      {%- for section in sorted_sections %}
+        <section id="{{ section.title | slugify}}">
+          {%- if show_title != null or show_title == true %}
+            <h1>{{ section.title }}</h1>
+          {%- endif %}
+          {{ section.content }}
+        </section>
+      {%- endfor %}
     </main>
     <a id="scroll-up" href="#site-header">&uarr;</a>
 
