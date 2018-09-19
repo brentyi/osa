@@ -2,5 +2,4 @@
 layout: home
 ---
 
-# {{ site.title }}
-{{ site.description }}
+Put content in _sections!
