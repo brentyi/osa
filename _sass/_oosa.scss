@@ -70,8 +70,8 @@ li {
 header#site-header {
     background-color: $palette-bg-dark;
     z-index: 999;
-    padding: 2.5em 2em;
-    width: 19em;
+    padding: 3em 3em;
+    width: 22em;
     position: fixed;
     top: 0;
     left: 0;
@@ -99,7 +99,7 @@ header#site-header {
 }
 
 main {
-    padding: 3em 3em 3em 22em;
+    padding: 3em 3em 3em 24em;
     box-sizing: content-box;
     max-width: 40em;
 }
