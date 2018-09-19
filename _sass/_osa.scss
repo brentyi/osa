@@ -1,5 +1,5 @@
 $palette-bg-light: #ffffff;
-$palette-bg-dark: #ffffff;
+$palette-bg-dark: #f7f7f7;
 
 $palette-fg-light: #8d8d8d;
 $palette-fg-dark: #000;
@@ -68,7 +68,7 @@ li {
 }
 
 header#site-header {
-    background-color: $palette-bg-dark;
+    background-color: $palette-bg-light;
     z-index: 999;
     padding: 3em 3em;
     width: 22em;
@@ -79,7 +79,7 @@ header#site-header {
 
     h1 {
         margin-bottom: 0.2em;
-        line-height: 1.5em;
+        line-height: 1.375em;
     }
 
     p {
@@ -91,6 +91,7 @@ header#site-header {
     ol {
         color: $palette-fg-light;
         padding-left: 0;
+        line-height: 1.75em;
     }
 
     li {
@@ -105,7 +106,7 @@ main {
 }
 
 section {
-    padding: 3.4em 0 0 0;
+    padding: 1.7em 0 1.7em 0;
 }
 section:first-of-type {
     padding: 0;
