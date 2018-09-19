@@ -72,7 +72,7 @@
     <main>
       {%- for section in sorted_sections %}
         <section id="{{ section.title | slugify}}">
-          {%- if show_title != null or show_title == true %}
+          {%- if section.hide_title == false or section.hide_title == null %}
             <h1>{{ section.title }}</h1>
           {%- endif %}
           {{ section.content }}
