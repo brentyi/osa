@@ -105,7 +105,10 @@ main {
 }
 
 section {
-    padding: 0 0 3.4em 0;
+    padding: 3.4em 0 0 0;
+}
+section:first-of-type {
+    padding: 0;
 }
 
 iframe {
