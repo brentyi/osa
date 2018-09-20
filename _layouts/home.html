@@ -11,7 +11,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-visible/1.2.0/jquery.visible.min.js"></script>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet" />
 
@@ -37,20 +36,59 @@
         }, 500);
       });
 
-      // Scroll events
+      // Some logic for updating the table of contents numbering
+      // Happens at 10Hz to make the rendering job a little easier for the browser
+      let ScrollEnum = {STABLE: 1, DIRTY: 2, FLUSHED: 3};
+      let scroll_status = ScrollEnum.STABLE;
       $(window).on('scroll resize', function(){
+        if ($(window).width() <= 720)
+          return;
+
+        scroll_status = ScrollEnum.DIRTY;
+
         // Highlight nav links based on the visibility of their respective sections
         $('section').each(function(index) {
-          let id = $(this).attr('id');
-          let opacity = 0.2 + $(this).visibility_heuristic() * 0.4;
-          let color = 'rgba(0, 0, 0, ' + opacity + ')';
-          $('a[href="#' + id + '"]').parent().css("color", color);
+          let $li = $('a[href="#' + $(this).attr('id') + '"]').parent();
+          let vis = ($li.data("visibility_buffer") || 0.0);
+          let new_vis = Math.max(vis, $(this).visibility_heuristic());
+          $li.data("visibility_buffer", new_vis);
         });
-
-        // Show "scroll to top" button when nav is invisible
-        let nav_vis = $('#site-header').visibility_heuristic() * 100;
-        $('#scroll-up').css('transform', 'translateY(' + nav_vis + '%)');
       });
+      setInterval(function() {
+        if ($(window).width() <= 720)
+          return;
+
+        switch(scroll_status) {
+          case ScrollEnum.DIRTY:
+            // Highlight nav links based on the visibility of their respective sections
+            $('section').each(function(index) {
+              let $li = $('a[href="#' + $(this).attr('id') + '"]').parent();
+              let opacity = 0.2 + $li.data("visibility_buffer") * 0.4;
+              let color = 'rgba(0, 0, 0, ' + opacity + ')';
+              $li.css("color", color);
+            });
+
+            // Show "scroll to top" button when nav is invisible
+            let nav_vis = $('#site-header').visibility_heuristic() * 100;
+            $('#scroll-up').css('transform', 'translateY(' + nav_vis + '%)');
+
+            scroll_status = ScrollEnum.FLUSHED;
+            break;
+          case ScrollEnum.FLUSHED:
+            $('section').each(function(index) {
+              let $li = $('a[href="#' + $(this).attr('id') + '"]').parent();
+              let opacity = 0.2 + $(this).visibility_heuristic() * 0.4;
+              let color = 'rgba(0, 0, 0, ' + opacity + ')';
+              $li.css("color", color);
+              $li.data("visibility_buffer", 0.0);
+            });
+
+            scroll_status = ScrollEnum.STABLE;
+            break;
+          case ScrollEnum.STABLE:
+            break;
+        }
+      }, 100);
 
       // Scroll status changes after LaTeX rendeirng -- update accordingly
       MathJax.Hub.Register.StartupHook("End",function () {
