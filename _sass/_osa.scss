@@ -138,7 +138,7 @@ figure {
     left: 0;
     bottom: 0;
 
-    display: block;
+    display: none;
     padding: 0;
     line-height: 2em;
     font-size: 1.5em;
@@ -153,6 +153,7 @@ figure {
     main {
         padding: 2em 2em;
     }
+
     header#site-header {
         position: relative;
         top: initial;
@@ -162,8 +163,13 @@ figure {
         width: 100%;
         padding: 2em 2em 0 2em;
     }
+
     .MathJax_Display {
         font-size: 75%;
+    }
+
+    #scroll-up {
+        display: block;
     }
 }
 
