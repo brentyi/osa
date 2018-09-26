@@ -130,7 +130,7 @@
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       (function() {
-        let u="{{ site.matomo_url }}";
+        let u="//{{ site.matomo_url }}/";
         _paq.push(['setTrackerUrl', u+'piwik.php']);
         _paq.push(['setSiteId', '{{ site.matomo_site_id }}']);
         let d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
