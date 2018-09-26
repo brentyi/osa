@@ -122,7 +122,7 @@
     <!-- MathJax -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-    {% if site.matomo_url %}
+    {%- if site.matomo_url %}
     <!-- Matomo -->
     <script type="text/javascript">
       let _paq = _paq || [];
@@ -137,6 +137,6 @@
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
-  {% endif %}
+  {%- endif %}
   </body>
 </html>
