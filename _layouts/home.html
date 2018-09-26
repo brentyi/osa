@@ -30,6 +30,9 @@
 
       // Smooth scroll
       $('a[href^="#"]').click(function(event) {
+        {%- if site.matomo_url %}
+        _paq && _paq.push(['trackLink', $.attr(this, 'href'), 'link']);
+        {%- endif %}
         event.preventDefault();
         $('body, html').stop().animate({
           scrollTop: $($.attr(this, 'href')).offset().top
