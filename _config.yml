@@ -3,6 +3,9 @@ description: A Jekyll Theme
 
 highlighter: rouge
 
+matomo_url: brentyi.com/piwik
+matomo_site_id: 0
+
 collections:
   sections:
     output: false
@@ -13,7 +16,6 @@ defaults:
       path: ""
     values:
       latex: no
-
 
 # Build settings
 markdown: kramdown
