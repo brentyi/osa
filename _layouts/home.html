@@ -41,8 +41,12 @@
       let ScrollEnum = {STABLE: 1, DIRTY: 2, FLUSHED: 3};
       let scroll_status = ScrollEnum.STABLE;
       $(window).on('scroll resize', function(){
-        if ($(window).width() <= 720)
+        if ($(window).width() <= 720) {
+          // Show "scroll to top" button when nav is invisible
+          let nav_vis = $('#site-header').visibility_heuristic() * 100;
+          $('#scroll-up').css('transform', 'translateY(' + nav_vis + '%)');
           return;
+        }
 
         scroll_status = ScrollEnum.DIRTY;
 
@@ -67,10 +71,6 @@
               let color = 'rgba(0, 0, 0, ' + opacity + ')';
               $li.css("color", color);
             });
-
-            // Show "scroll to top" button when nav is invisible
-            let nav_vis = $('#site-header').visibility_heuristic() * 100;
-            $('#scroll-up').css('transform', 'translateY(' + nav_vis + '%)');
 
             scroll_status = ScrollEnum.FLUSHED;
             break;
